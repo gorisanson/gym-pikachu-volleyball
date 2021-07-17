@@ -193,6 +193,7 @@ class Player:
     def __init__(self, isPlayer2: bool, isComputer: bool):
         self.isPlayer2: bool = isPlayer2
         self.isComputer: bool = isComputer
+        self.initializeForNewRound()
         self.divingDirection: int = 0
         self.lyingDownDurationLeft: int = -1
         self.isWinner: bool = False
