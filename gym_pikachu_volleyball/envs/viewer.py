@@ -40,7 +40,7 @@ class Viewer(object):
         self.players = pyglet.graphics.Batch()
 
         for file in files:
-            if file[:4] == 'ball' and len(file) == 10:
+            if file[:4] == 'ball' and (len(file) == 10 or file[5:10] == 'hyper'):
                 self.ball_images.append(self.load_image(f'{PATH}/../envs/sprites/{file}'))
 
             if file[:4] == 'pika':
