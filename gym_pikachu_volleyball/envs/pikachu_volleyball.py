@@ -548,6 +548,9 @@ def expectedLandingPointXWhenPowerHit(userInputXDirection: int, userInputYDirect
             copyBall.yVelocity = 1
 
         if abs(copyBall.x - GROUND_HALF_WIDTH) < NET_PILLAR_HALF_WIDTH and copyBall.y > NET_PILLAR_TOP_TOP_Y_COORD:
+            if copyBall.yVelocity > 0:
+                copyBall.yVelocity = -copyBall.yVelocity
+            '''
             if copyBall.y <= NET_PILLAR_TOP_BOTTOM_Y_COORD:
                 if copyBall.yVelocity > 0:
                     copyBall.yVelocity = -copyBall.yVelocity
@@ -556,6 +559,7 @@ def expectedLandingPointXWhenPowerHit(userInputXDirection: int, userInputYDirect
                     copyBall.xVelocity = -abs(copyBall.xVelocity)
                 else:
                     copyBall.xVelocity = abs(copyBall.xVelocity)
+            '''
 
         copyBall.y = copyBall.y + copyBall.yVelocity
 
