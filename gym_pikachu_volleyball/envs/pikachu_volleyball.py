@@ -246,7 +246,12 @@ def processCollisionBetweenBallAndWorldAndSetBallPosition(ball: Ball) -> bool:
     ball.previousX = ball.x
     ball.previousY = ball.y
 
-    ball.fineRotation = (ball.fineRotation + ball.xVelocity // 2) % 50
+    futureFineRotation = ball.fineRotation + ball.xVelocity // 2
+    if futureFineRotation < 0:
+        futureFineRotation += 50
+    elif futureFineRotation > 50:
+        futureFineRotation += -50
+    ball.fineRotation = futureFineRotation
     ball.rotation = ball.fineRotation // 10
 
     futureBallX: int = ball.x + ball.xVelocity
