@@ -99,7 +99,7 @@ class PikachuVolleyballEnv(gym.Env):
     def render(self):
         if self.viewer is None:
             from gym_pikachu_volleyball.envs.viewer import Viewer
-            self.viewer = Viewer(GROUND_WIDTH, 304, scale=4)
+            self.viewer = Viewer(GROUND_WIDTH, 304, scale=1)
             self.startTime = time()
 
         self.viewer.update(self.player1, self.player2, self.ball)
