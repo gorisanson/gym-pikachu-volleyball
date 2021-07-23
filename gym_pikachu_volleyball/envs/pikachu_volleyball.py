@@ -68,7 +68,7 @@ class PikachuVolleyballEnv(gym.Env):
 
         self.viewer = None
 
-    def step(self, action=Tuple[int, int]):
+    def step(self, action: Tuple[int, int]):
         action = (UserInput(*action_converter_p1[action[0]]), UserInput(*action_converter_p2[action[1]]))
         isBallTouchingGround = physicsEngine(self.player1, self.player2, self.ball, action)
 
