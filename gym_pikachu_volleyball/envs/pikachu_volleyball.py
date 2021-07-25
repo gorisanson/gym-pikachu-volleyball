@@ -548,9 +548,16 @@ def expectedLandingPointXWhenPowerHit(userInputXDirection: int, userInputYDirect
             copyBall.yVelocity = 1
 
         if abs(copyBall.x - GROUND_HALF_WIDTH) < NET_PILLAR_HALF_WIDTH and copyBall.y > NET_PILLAR_TOP_TOP_Y_COORD:
-            if copyBall.yVelocity > 0:
-                copyBall.yVelocity = -copyBall.yVelocity
-            '''
+            # The comment below is copied from: https://github.com/gorisanson/pikachu-volleyball/blob/7dfebde7096e17d4f195e2f5e3883f11ca57c800/src/resources/js/physics.js#L998-L1002
+            # The code below maybe is intended to make computer do mistakes.
+            # The player controlled by computer occasionally power hit ball that is bounced back by the net pillar,
+            # since code below do not anticipate the bounce back.
+            #
+            # if copyBall.yVelocity > 0:
+            #     copyBall.yVelocity = -copyBall.yVelocity
+
+            # The comment and code below is from: https://github.com/gorisanson/pikachu-volleyball/blob/7dfebde7096e17d4f195e2f5e3883f11ca57c800/src/resources/js/physics.js#L1006-L1020
+            # An alternative code for making the computer not do those mistakes is as below.
             if copyBall.y <= NET_PILLAR_TOP_BOTTOM_Y_COORD:
                 if copyBall.yVelocity > 0:
                     copyBall.yVelocity = -copyBall.yVelocity
@@ -559,7 +566,7 @@ def expectedLandingPointXWhenPowerHit(userInputXDirection: int, userInputYDirect
                     copyBall.xVelocity = -abs(copyBall.xVelocity)
                 else:
                     copyBall.xVelocity = abs(copyBall.xVelocity)
-            '''
+
 
         copyBall.y = copyBall.y + copyBall.yVelocity
 
