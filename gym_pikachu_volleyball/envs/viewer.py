@@ -166,8 +166,8 @@ class Viewer(object):
 
         self.background.draw()
         self.net.draw()
-        self.balls.draw()
         self.players.draw()
+        self.balls.draw()
 
         self.window.flip()
 
